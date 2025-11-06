@@ -30,13 +30,13 @@ pipeline {
              body: "Deploy Success",
              from: "jenkins@test.com",
              subject: "Build Success",
-             to: "your-email@test.com"
+             to: "kchaithanyakumar123@gmail.com"
     }
     failure {
         mail bcc: "",
              body: "Deploy Failed",
              from: "jenkins@test.com",
              subject: "Build Failed",
-             to: "your-email@test.com"
+             to: "kchaithanyakumar123@gmail.com"
     }
 }

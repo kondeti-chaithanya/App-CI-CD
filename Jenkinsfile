@@ -24,21 +24,22 @@ pipeline {
         }
     }
 
-  post {
-    success {
-        mail(
-            to: "kchaithanyakumar123@gmail.com",
-            subject: "Build Success",
-            body: "Deploy Success",
-            from: "jenkins@test.com"
-        )
-    }
-    failure {
-        mail(
-            to: "kchaithanyakumar123@gmail.com",
-            subject: "Build Failed",
-            body: "Deploy Failed",
-            from: "jenkins@test.com"
-        )
+    post {
+        success {
+            mail(
+                to: "kchaithanyakumar123@gmail.com",
+                subject: "Build Success",
+                body: "Deploy Success",
+                from: "jenkins@test.com"
+            )
+        }
+        failure {
+            mail(
+                to: "kchaithanyakumar123@gmail.com",
+                subject: "Build Failed",
+                body: "Deploy Failed",
+                from: "jenkins@test.com"
+            )
+        }
     }
 }

@@ -1,0 +1,11 @@
+[Unit]
+Description=Node.js App
+After=network.target
+
+[Service]
+ExecStart=/usr/bin/node /opt/myapp/server.js
+Restart=always
+User=ec2-user
+
+[Install]
+WantedBy=multi-user.target

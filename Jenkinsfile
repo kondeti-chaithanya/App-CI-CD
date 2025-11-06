@@ -24,19 +24,21 @@ pipeline {
         }
     }
 
-    post {
+  post {
     success {
-        mail bcc: "",
-             body: "Deploy Success",
-             from: "jenkins@test.com",
-             subject: "Build Success",
-             to: "kchaithanyakumar123@gmail.com"
+        mail(
+            to: "kchaithanyakumar123@gmail.com",
+            subject: "Build Success",
+            body: "Deploy Success",
+            from: "jenkins@test.com"
+        )
     }
     failure {
-        mail bcc: "",
-             body: "Deploy Failed",
-             from: "jenkins@test.com",
-             subject: "Build Failed",
-             to: "kchaithanyakumar123@gmail.com"
+        mail(
+            to: "kchaithanyakumar123@gmail.com",
+            subject: "Build Failed",
+            body: "Deploy Failed",
+            from: "jenkins@test.com"
+        )
     }
 }

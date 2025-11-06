@@ -7,18 +7,15 @@ pipeline {
     stages {
         stage("Build") {
             steps {
-                sh "npm install"
-                sh "npm run build"
+                echo "Installing dependencies... (simulated)"
+                echo "Building application... (simulated)"
             }
         }
 
         stage("Deploy") {
             steps {
                 sshagent(['ssh-cred-id']) {
-                    sh """
-                    scp -r build/* ${TARGET_SERVER}:/tmp/build/
-                    ssh ${TARGET_SERVER} 'bash /opt/scripts/deploy.sh'
-                    """
+                    echo "Simulating deployment to ${TARGET_SERVER}"
                 }
             }
         }
@@ -26,20 +23,10 @@ pipeline {
 
     post {
         success {
-            mail(
-                to: "kchaithanyakumar123@gmail.com",
-                subject: "Build Success",
-                body: "Deploy Success",
-                from: "jenkins@test.com"
-            )
+            echo "Sending success email notification... (simulated)"
         }
         failure {
-            mail(
-                to: "kchaithanyakumar123@gmail.com",
-                subject: "Build Failed",
-                body: "Deploy Failed",
-                from: "jenkins@test.com"
-            )
+            echo "Sending failure email notification... (simulated)"
         }
     }
 }
